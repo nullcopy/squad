@@ -42,91 +42,111 @@ Squad is a tool for managing a virtual team of AI agents. With squad, you can:
 
 ### Building
 
-TBD...
+Clone the repository and build:
+
+```bash
+git clone https://github.com/cargodog/squad.git
+cd squad
+./build.sh
+```
+
+The binary will be available at `target/release/squad`.
+
+### Installation
+
+You can install squad using cargo:
+
+```bash
+cargo install --path .
+```
+
+Or run directly:
+```bash
+cargo run -- --help
+```
 
 ### Creating Your First Agent
 
-TBD...
+1. **Create an agent**:
+   ```bash
+   squad create my-agent
+   ```
 
-## Command Reference
+2. **List your agents**:
+   ```bash
+   squad list
+   ```
 
-### 'squad'
+3. **Check agent status**:
+   ```bash
+   squad ps
+   ```
 
-'''
-Usage: squad <COMMAND>
+4. **Remove an agent**:
+   ```bash
+   squad rm my-agent
+   ```
 
-Commands:
-  create  Create and start new agent containers
-  list    List all active agents
-  rm      Stop and remove agent containers
-  ps      Show detailed status information for all agents
-  help    Print this message or the help of the given subcommand(s)
+## 📖 Usage
 
-Options:
-  -h, --help     Print help
-  -V, --version  Print version
-'''
+Squad provides several commands to manage your AI agents:
 
-### `squad create'
+### Commands
 
-'''
-Create and start new agent containers
+- `squad create <name>` - Create a new agent
+- `squad list` - List all agents  
+- `squad ps` - Show running agent status
+- `squad rm <name>` - Remove an agent
 
-Usage: squad create [NAMES]...
+### Examples
 
-Arguments:
-  [NAMES]...  Names of the agents to create
+```bash
+# Create multiple agents
+squad create researcher
+squad create writer
+squad create reviewer
 
-Options:
-  -h, --help  Print help
-'''
+# Check what's running
+squad ps
 
-#### Examples
+# Clean up
+squad rm researcher writer reviewer
+```
 
-* 'squad create Alice - Create a single agent named Alice'
-* 'squad create Alice Bob Carol - Create multiple agents at once'
+## 🏗️ Architecture
 
-### `squad list`
+Squad uses container technology (Podman/Docker) to isolate and manage AI agents. Each agent runs in its own container environment, providing:
 
-'''
-List all active agents
+- **Isolation**: Agents run independently 
+- **Resource Management**: Container-level resource controls
+- **Security**: Sandboxed execution environment
+- **Portability**: Consistent runtime across platforms
 
-Usage: squad list
+## 🧪 Development
 
-Options:
-  -h, --help  Print help
-'''
+See [CONTRIBUTING.md](CONTRIBUTING.md) for complete development setup, testing guidelines, code standards, and contribution workflow.
 
-### `squad rm`
+## 🔧 Configuration
 
-'''
-Stop and remove agent containers
+Squad automatically detects your container runtime:
 
-Usage: squad rm [OPTIONS] [NAMES]...
+1. **Podman** (preferred) - Rootless and daemonless
+2. **Docker** - Fallback option
 
-Arguments:
-  [NAMES]...  Names of the agents to remove
+No additional configuration required for basic usage.
 
-Options:
-  -a, --all   Remove all agents
-  -h, --help  Print help
-'''
+## 🤝 Contributing
 
-#### Examples
+See [CONTRIBUTING.md](CONTRIBUTING.md) for development setup, coding standards, and submission guidelines.
 
-* 'squad rm Alice - Remove agent named Alice'
-* 'squad rm Alice Bob - Remove multiple agents'
-* 'squad rm -a - Remove all agents'
-* 'squad rm --all - Remove all agents (alternative syntax)'
+## 📄 License
 
-### `squad ps`
+TODO
 
-'''
-Show detailed status information for all agents
+## 🔗 Links
 
-Usage: squad ps [OPTIONS]
+- [Repository](https://github.com/cargodog/squad)
+- [Issues](https://github.com/cargodog/squad/issues)
+- [Releases](https://github.com/cargodog/squad/releases)
 
-Options:
-  -h, --help           Print help
-''' 
 
