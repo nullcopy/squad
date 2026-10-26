@@ -1,11 +1,11 @@
 [package]
 name = "squad"
 version = "0.1.0"
+license = "AGPL-3.0-or-later"
 edition = "2021"
 authors = ["cargodog"]
 description = "Assemble your squad of AI agents"
 repository = "https://github.com/cargodog/squad"
-license = "MIT OR Apache-2.0"
 readme = "README.md"
 keywords = ["ai", "agents", "containers", "docker", "podman"]
 categories = ["command-line-utilities", "development-tools"]
